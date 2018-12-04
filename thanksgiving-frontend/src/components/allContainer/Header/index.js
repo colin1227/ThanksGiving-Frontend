@@ -8,7 +8,10 @@ export default class Header extends Component {
            <Link to="/">Story</Link> 
               {this.props.logged ? <div>
                   <Link to="/givethanks">Give Thanks</Link>
-                  <Link to="/invite">Invite People</Link> </div> :
+                  <Link to="/invite">Invite People</Link>
+                  <Link to={`/${this.props.userId}`}>{this.props.name}</Link> 
+                  </div>
+                   :
                   <div>
                   <Link to={this.props.lastPage}>Give Thanks</Link>
                   <Link to={this.props.lastPage}>Invite People</Link>

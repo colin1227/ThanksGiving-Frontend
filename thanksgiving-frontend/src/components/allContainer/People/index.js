@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class People extends Component {
     constructor(){
@@ -53,13 +54,13 @@ export default class People extends Component {
         const displayEveryone = this.state.people.map((person, i) =>{
             return(
             
-                    <li key={i}><h3>{person.name}</h3></li>
+                <li key={i}><h3><Link to={`/${person._id}`} onClick={() => this.props.specId(person._id, "people")} >{person.name}</Link></h3></li>
                 
             )
         })
         const displayUsers = this.state.users.map((user, i) =>{
             return(
-                <li key={i}><h3>{user.name}</h3></li>
+                <li key={i}><h3><Link to={`/${user._id}`} onClick={() => this.props.specId(user._id, "user")} >{user.name}</Link></h3></li>
             )
         })
       return(

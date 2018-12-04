@@ -11,7 +11,9 @@ router.post("/", async(req, res)=>{
                 'status': 200,
                'logged': true,
                 'userId': user._id,
-                'username': user.username
+                'username': user.username,
+                'likedFood': user.likedFood,
+                'thanks': user.thanks
 
             })
     }
@@ -120,7 +122,7 @@ router.put("/liked", async(req, res)=>{
             {likedFood: foodLiked}
         }, {'new':true})
     
-      if(user.likedFood !== undefined){
+      if(user.likedFood === undefined){
           res.json({
               'data': 'didn\'t work'
           })

@@ -8,8 +8,10 @@ import Login from './Login';
 import GiveThanks from "./GiveThanks";
 import InvitePeople from "./InvitePeople";
 import Header from "./Header";
-import SuperReg from "./superReg"
-import AdminFood from "./food"
+import SuperReg from "./superReg";
+import AdminFood from "./food";
+import User from "./userPage";
+import Person from "./personPage";
 
 export default class container extends Component {
     constructor(){
@@ -19,7 +21,10 @@ export default class container extends Component {
             name: "",
             logged: false,
             lastPage: "/",
-            super: false
+            super: false,
+            specificUsername: "",
+            specificPerson: "",
+            error: ""
             
         }
     }
@@ -61,6 +66,32 @@ export default class container extends Component {
         }
 
         }
+    specId = async(id, x) => {
+        console.log(id, x)
+        try{
+            if(x === "people"){
+            this.setState({
+                specificId:`people/${id}`
+            })
+        }
+            else if(x === "user"){
+                this.setState({
+                    specificId: `user/${id}`
+                })
+            }
+            else {
+                this.setState({
+                    specificId: id
+                })
+            }
+        }
+       
+        catch(err){
+            this.setState({
+                error: err
+            })
+        }
+    }
     newURL = async(value) =>{
         try{
               await this.setState({
@@ -77,7 +108,7 @@ export default class container extends Component {
                 {this.state.super ? <p>super</p> : <p>not super</p>}
                 {this.state.userId}
                 {this.state.lastPage}
-            <Header logged={this.state.logged} lastPage={this.state.lastPage} super={this.state.super} logOut={this.logOut}/>
+            <Header logged={this.state.logged} lastPage={this.state.lastPage} super={this.state.super} logOut={this.logOut} userId={this.state.userId} name={this.state.name}/>
           <Switch>
                 <Route exact path="/"
                     render={(routeProps) => {
@@ -124,6 +155,26 @@ export default class container extends Component {
                             <InvitePeople {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
                         )
                     }} /> 
+
+                    <Route exact path={`/${this.state.userId}`}
+                        render={(routeProps) => {
+                            return (
+                                <User {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
+                            )
+                        }} /> 
+                    <Route exact path={`/user/${this.props.specificId}`}
+                        render={(routeProps) => {
+                            return (
+                                <User {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
+                            )
+                        }} /> 
+
+                    <Route exact path={`/people/${this.props.specificId}`}
+                        render={(routeProps) => {
+                            return (
+                                <People {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
+                            )
+                        }} />
 
                 <Route exact path="/login" render={(routeProps)=>(
                         <Login {...routeProps} {...this.props} newUserId={this.newUserId} lastPage={this.state.lastPage}/>
