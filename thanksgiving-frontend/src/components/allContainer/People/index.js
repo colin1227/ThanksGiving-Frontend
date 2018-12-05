@@ -54,13 +54,13 @@ export default class People extends Component {
         const displayEveryone = this.state.people.map((person, i) =>{
             return(
             
-                <li key={i}><h3><Link to={`/${person._id}`} onClick={() => this.props.specId(person._id, "people")} >{person.name}</Link></h3></li>
+                <li key={i}><h3><Link to={`/people/${person._id}`} onClick={() => this.props.specId(person._id)} >{person.name}</Link></h3></li>
                 
             )
         })
         const displayUsers = this.state.users.map((user, i) =>{
             return(
-                <li key={i}><h3><Link to={`/${user._id}`} onClick={() => this.props.specId(user._id, "user")} >{user.name}</Link></h3></li>
+                <li key={i}><h3><Link to={`/user/${user._id}`} onClick={() => this.props.specId(user._id)} >{user.name}</Link></h3></li>
             )
         })
       return(

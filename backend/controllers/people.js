@@ -10,7 +10,9 @@ router.get("/", async(req, res)=>{
         let arrayToSend = []
         await users.forEach((element)=>{
             arrayToSend = [
-                {name: element.username,
+                ...arrayToSend,
+                {_id: element._id,
+                name: element.username,
                  thanks: element.thanks,
                  foods: element.likedFood}]
         })

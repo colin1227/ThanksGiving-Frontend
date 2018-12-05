@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import { Button, Form, Input, Header, Grid, Segment, Icon } from 'semantic-ui-react';
+import "./invitePeople.css";
 export default class InvitePeople extends Component {
     constructor(){
         super()
@@ -141,21 +142,30 @@ export default class InvitePeople extends Component {
     }
 
     render() {
-        let foodsDisplayed = this.state.allFood.map((element)=>{
+        let foodsDisplayed = this.state.allFood.map((element, i)=>{
             return(
-                <div>
-                  <input type="checkbox" onChange={this.handleSelect} name={element.name} value={element.name}/> i brought a {element.name} <br/>
+                <div key={i}>
+                 <Grid.Row>
+                  <Grid.Column>
+                    <Input className="space" type="checkbox" onChange={this.handleSelect} name={element.name} value={element.name}/> {this.state.name} brought {element.name} <br/>
+                  </Grid.Column>
+                </Grid.Row>
                 </div>
             )
         })
         return (
-            <div>
+            <div >
                 <h1>InvitePeople </h1>
-                <form onSubmit={this.handleInvitation}>
-                    <input type="text" name="name" onChange={this.handleSubmit} value={this.state.name}/>
-                    {foodsDisplayed}
-                    <input type="submit" value="Invite" />
-                </form>
+                <Form onSubmit={this.handleInvitation}>
+                    <Input className="space" type="text" name="name" onChange={this.handleSubmit} value={this.state.name} placeholder="what's their name?"/>
+                    <Grid columns={3}>
+                      
+                        {foodsDisplayed}  
+                      
+                      
+                    </Grid>
+                    <Input className="space" type="submit" value="Invite" />
+                </Form>
             </div>
         )
     }

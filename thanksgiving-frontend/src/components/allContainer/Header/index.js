@@ -1,29 +1,73 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Icon, Header, Button, Form, Grid } from "semantic-ui-react";
  
-export default class Header extends Component {
+export default class Head extends Component {
     render(){
       return(
           <nav>
-           <Link to="/">Story</Link> 
-              {this.props.logged ? <div>
-                  <Link to="/givethanks">Give Thanks</Link>
-                  <Link to="/invite">Invite People</Link>
+            <Grid columns={7}>
+              <Grid.Row>
+                <Grid.Column>
+                  <Link to="/">Story</Link>
+                </Grid.Column> 
+              
+                 {this.props.logged ?
+                <Grid.Column>
                   <Link to={`/${this.props.userId}`}>{this.props.name}</Link> 
-                  </div>
+                </Grid.Column>
+                :
+                <Link to="/nowhere"></Link>
+                 }
+                  {this.props.logged ? 
+                      <Grid.Column>
+                          <Link to="/givethanks">Give Thanks</Link>
+                      </Grid.Column>
                    :
-                  <div>
+                  
+                <Grid.Column>
                   <Link to={this.props.lastPage}>Give Thanks</Link>
+                </Grid.Column>
+               }
+               {this.props.logged
+               ?
+                <Grid.Column>
+                  <Link to="/invite">Invite People</Link>
+                </Grid.Column> 
+                :
+                <Grid.Column>
                   <Link to={this.props.lastPage}>Invite People</Link>
-                  </div>
+                </Grid.Column>
               }
-              {this.props.super ? <Link to="/adminfood">manage food</Link>: <Link to=''></Link> } 
-           <Link to="/people">People</Link>
-           <Link to="/table">Table</Link> 
-           <Link to="/thanks">Thanks</Link>         
+              {this.props.super ? 
+                          
+                <Grid.Column>
+                  <Link to="/adminfood">manage food</Link>
+                </Grid.Column>
+              :   
+                <Link to=''></Link> } 
+                <Grid.Column>
+                  <Link to="/people">People</Link>
+                </Grid.Column>
+           
+                <Grid.Column>
+                  <Link to="/table">Table</Link> 
+                </Grid.Column>
+
+                <Grid.Column>
+                  <Link to="/thanks">Thanks</Link>
+                </Grid.Column>         
               {this.props.logged ?
-               <Link to={this.props.lastPage} onClick={this.props.logOut}>Logout</Link> :
-               <Link to="/login">Login</Link>}
+                <Grid.Column>
+                  <Link to={this.props.lastPage} onClick={this.props.logOut}>Logout</Link> 
+                </Grid.Column>
+               :
+                <Grid.Column>
+               <Link to="/login">Login</Link>
+                </Grid.Column>
+              }
+               </Grid.Row>
+             </Grid>
           </nav>
     
       )

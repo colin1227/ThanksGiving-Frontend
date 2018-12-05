@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-
+import { List } from 'semantic-ui-react'
 export default class Bulletin extends Component {
     constructor(){
         super()
@@ -76,35 +76,19 @@ export default class Bulletin extends Component {
     render(){
         const displayedThanks = this.state.allThanks.map((element, i)=>{
           return(
-            <ul key= {i}>
-              <li>Title: {element.title}</li>
-              <li>Body: {element.body}</li>
-            </ul>
+            <List unordered key={i}>
+              <List.Item><b>{element.title}</b></List.Item>
+              <List.Item> {element.body}</List.Item>
+            </List>
           )
         })
-        // const displayedCurrentThanks = this.state.currentThanks.map((element, i) => {
-        //     return (
-        //         <ul key={i}>
-        //             <li>Title: {element.title}</li>
-        //             <li>Body: {element.body}</li>
-        //         </ul>
-        //     )
-        // })
-        const pages = () => {
-            for(let i = 0; i < this.state.pages; i++){
-               console.log("ha")
-                return(
-                    <a key={i} href={`http://localhost:3000/thanks/${i}`}>{i}</a>
-                )
-            }
-        }
+
         return(
             <div>
               <h1>Thanks page</h1>
-              {this.state.pages}
-              {pages}
+
               {displayedThanks}
-              <button onClick={this.countCurrentThanksIndex}>find index</button>
+              
             </div>
         )
     }

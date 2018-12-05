@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import { Button, Form, Input, Header, Grid, Segment, Icon } from 'semantic-ui-react';
 class Login extends Component {
     constructor(){
         super()
@@ -94,16 +94,16 @@ class Login extends Component {
     render() {
       return(
         <div>
-          <form onSubmit={this.handleRegister}>
-            <input type='text' name='usernameReg' value={this.state.usernameReg} onChange={this.handleInput} placeholder='Register username' />
-            <input type='password' name='passwordReg' value={this.state.passwordReg} onChange={this.handleInput} placeholder='Register password' />
-            <button type='Submit'> Register</button>
-          </form> 
-          <form onSubmit={this.handleLogin}>
-            <input type='text' name='usernameLog' value={this.state.usernameLog} onChange={this.handleInput} placeholder='Login username' />
-            <input type='password' name='passwordLog' value={this.state.passwordLog} onChange={this.handleInput} placeholder='Login password' />
-            <button type='Submit'> Login </button>
-          </form> 
+          <Form onSubmit={this.handleRegister}>
+            <Input type='text' name='usernameReg' value={this.state.usernameReg} onChange={this.handleInput} placeholder='Register username' />
+            <Input type='password' name='passwordReg' value={this.state.passwordReg} onChange={this.handleInput} placeholder='Register password' />
+            <Button type='Submit'> Register</Button>
+          </Form> 
+          <Form onSubmit={this.handleLogin}>
+            <Input type='text' name='usernameLog' value={this.state.usernameLog} onChange={this.handleInput} placeholder='Login username' />
+            <Input type='password' name='passwordLog' value={this.state.passwordLog} onChange={this.handleInput} placeholder='Login password' />
+            <Button type='Submit'> Login </Button>
+          </Form> 
         </div>
       )
     }

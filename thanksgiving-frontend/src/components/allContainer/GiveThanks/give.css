@@ -1,0 +1,20 @@
+.body{
+    width: 500px;
+    height: 80px;
+}
+
+.left {
+   position: relative;
+   left:-110px;
+   bottom: 10px;
+}
+
+.right {
+   position: relative;
+   right: -140px;
+   top: 15px;
+}
+
+.title {
+    width: 250px;
+}

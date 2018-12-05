@@ -16,12 +16,11 @@ export default class User extends Component {
             const request = await fetch("http://localhost:8000/auth/",{
                 method:"POST",
                 body: JSON.stringify({
-                    userId: this.props.userId
+                    userId: this.props.specificId  || this.props.userId
                 }),
                 headers: {"Content-Type": "application/json"}
             });
             const response = await request.json();
-            console.log(response.likedFood)
             return response;
         }
         catch(err){

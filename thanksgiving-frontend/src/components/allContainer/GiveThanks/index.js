@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import { Button, Form, Input, Header, Grid, Segment, Icon } from 'semantic-ui-react';
+import "./give.css"
 export default class GiveThanks extends Component {
     constructor(){
         super()
@@ -85,11 +86,11 @@ export default class GiveThanks extends Component {
         return (
             <div>
                 <h1>Give thanks </h1>
-                <form onSubmit={this.handleThankfulness}>
-                    <input type="text" name="title" onChange={this.handleSubmit} value={this.state.title}/>
-                    <input type="body" name="body" onChange={this.handleSubmit} value={this.state.body} />
-                    <input type="submit" value="Submit your thankfulness" />
-                </form>
+                <Form onSubmit={this.handleThankfulness}>
+                    <Input type="text" className="left title" name="title" onChange={this.handleSubmit} value={this.state.title} placeholder="title"/><br/>
+                    <Input type="body" className="body" name="body" onChange={this.handleSubmit} value={this.state.body} placeholder="body" /><br/>
+                    <Input type="submit" className="right" value="Submit your thankfulness" />
+                </Form>
             </div>
             
 

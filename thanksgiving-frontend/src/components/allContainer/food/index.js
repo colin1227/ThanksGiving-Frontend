@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { Button, Form, Input, Header, Grid, Segment, Icon } from 'semantic-ui-react';
 
 export default class Food extends Component {
     constructor(){
@@ -136,8 +137,8 @@ export default class Food extends Component {
             return(
                 <div key={element._id}>
                     <b>{element.name}</b>
-                    <button onClick={ this.changeOptions.bind(null, element)}>edit exisiting food</button>
-                    <button onClick={this.deleteFood.bind(null, element.name)}>delete food </button>
+                    <Button onClick={ this.changeOptions.bind(null, element)}>edit exisiting food</Button>
+                    <Button onClick={this.deleteFood.bind(null, element.name)}>delete food </Button>
                 </div>
             )
         })
@@ -146,17 +147,17 @@ export default class Food extends Component {
                 <h1>CRUD foods here</h1>
                 {editOrDelete}
                 {this.state.edit ? 
-                    <form onSubmit={this.editFood}>
-                        <input type='text' name="editName" value={this.state.editName} onChange={this.handleInput} placeholder="name of food" />
-                        <input type='text' name="editImage" value={this.state.editImage} onChange={this.handleInput} placeholder="url of image" />
-                        <input type='submit' value="Edit food"/> 
-                    </form>
+                    <Form onSubmit={this.editFood}>
+                        <Input type='text' name="editName" value={this.state.editName} onChange={this.handleInput} placeholder="name of food" />
+                        <Input type='text' name="editImage" value={this.state.editImage} onChange={this.handleInput} placeholder="url of image" />
+                        <Input type='submit' value="Edit food"/> 
+                    </Form>
                     :
-                    <form onSubmit={this.createFood}>
-                        <input type='text' name="name" value={this.state.name} onChange={this.handleInput} placeholder="name of food" />
-                        <input type='text' name="image" value={this.state.image} onChange={this.handleInput} placeholder="url of image" />
-                        <input type='submit' value="Create food" />
-                    </form>
+                    <Form onSubmit={this.createFood}>
+                        <Input type='text' name="name" value={this.state.name} onChange={this.handleInput} placeholder="name of food" />
+                        <Input type='text' name="image" value={this.state.image} onChange={this.handleInput} placeholder="url of image" />
+                        <Input type='submit' value="Create food" />
+                    </Form>
             }
 
             </div>
