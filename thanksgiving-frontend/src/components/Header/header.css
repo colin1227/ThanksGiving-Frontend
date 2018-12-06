@@ -1,0 +1,26 @@
+.bg-nav{
+    background-image: url("https://66.media.tumblr.com/def5422eb3161606240c97da4cb5339c/tumblr_nvb7v7U9Hh1uadak5o1_500.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#theLogo {
+  position: relative;
+ 
+  display: flex;
+  justify-content:flex-end;
+}
+.App-logo {
+  animation: App-logo-spin infinite 10s linear;
+  height: 5vmin;
+  
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
