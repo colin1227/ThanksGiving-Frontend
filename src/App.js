@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import AllContainer from './thanksgiving-frontend/src/components'
+import AllContainer from './components/index'
 class App extends Component {
 
   render() {

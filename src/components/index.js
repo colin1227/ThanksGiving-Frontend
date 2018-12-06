@@ -14,7 +14,7 @@ import User from "./userPage";
 import Person from "./personPage";
 import './container.css'
 
-export default class container extends Component {
+export default class Container extends Component {
     constructor(){
         super()
         this.state = {
