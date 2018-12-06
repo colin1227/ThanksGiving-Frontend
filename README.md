@@ -16,11 +16,9 @@ In this project I will give a breif over view of the history of Thanksgiving, gi
 + As the user I want to share what I'm thankful for 
 + As the user I want to add people to bring to the table because the more the merrier
 
-### Wireframe 
-![I really hop you're not seeing this](Wireframe.png "Wireframe")
 
-### Data model
-![I really hop you're not seeing this](Datamodel.png "ERD")
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### To Start or Test the App
 
@@ -37,9 +35,6 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
