@@ -168,7 +168,7 @@ export default class Container extends Component {
                 <Route exact path="/login" render={(routeProps)=>(
                         <Login {...routeProps} {...this.props} newUserId={this.newUserId} lastPage={this.state.lastPage}/>
                 )} />
-                <Route exact path="/admin_register" render={(routeProps)=>(
+                <Route exact path="/adminregister" render={(routeProps)=>(
                         <SuperReg {...routeProps} {...this.props} newUserId={this.newUserId} lastPage={this.state.lastPage}/>
                 )} />
               
