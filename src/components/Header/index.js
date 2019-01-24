@@ -1,79 +1,78 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Icon, Header, Button, Form, Grid } from "semantic-ui-react";
 import './header.css'
 import logo from './../../logo.svg';
 export default class Head extends Component {
     render(){
       return(
           <nav className="bg-nav">
+          
           <div id='theLogo'>
+          <h2>Thanksgivings</h2>
             <img src={logo} className="App-logo" alt="logo" />
           </div>
-            <Grid columns={7}>
-              <Grid.Row>
-                <Grid.Column>
+
+            <div className="over">
+                <div className="sub">
                   <Link to="/">Story</Link>
-                </Grid.Column> 
-              
+                </div> 
+                
                  {this.props.logged ?
-                <Grid.Column>
+                <div className="sub">
                   <Link to={`/${this.props.userId}`}>{this.props.name}</Link> 
-                </Grid.Column>
+                </div>
                 :
                 <Link to="/nowhere"></Link>
                  }
                   {this.props.logged ? 
-                      <Grid.Column>
+                      <div className="sub">
                           <Link to="/givethanks">Give Thanks</Link>
-                      </Grid.Column>
+                      </div>
                    :
                   
-                <Grid.Column>
+                <div className="sub">
                   <Link to={this.props.lastPage}>Give Thanks</Link>
-                </Grid.Column>
+                </div>
                }
                {this.props.logged
                ?
-                <Grid.Column>
+                <div className="sub">
                   <Link to="/invite">Invite People</Link>
-                </Grid.Column> 
+                </div> 
                 :
-                <Grid.Column>
+                <div className="sub">
                   <Link to={this.props.lastPage}>Invite People</Link>
-                </Grid.Column>
+                </div>
               }
               {this.props.super ? 
                           
-                <Grid.Column>
+                <div className="sub">
                   <Link to="/adminfood">manage food</Link>
-                </Grid.Column>
+                </div>
               :   
                 <Link to=''></Link> } 
-                <Grid.Column>
+                <div className="sub">
                   <Link to="/people">People</Link>
-                </Grid.Column>
+                </div>
            
-                <Grid.Column>
+                <div className="sub">
                   <Link to="/table">Table</Link> 
-                </Grid.Column>
+                </div>
 
-                <Grid.Column>
+                <div className="sub">
                   <Link to="/thanks">Thanks</Link>
-                </Grid.Column>         
+                </div>         
               {this.props.logged ?
-                <Grid.Column>
+                <div className="sub">
                   <Link to={this.props.lastPage} onClick={this.props.logOut}>Logout</Link> 
-                </Grid.Column>
+                </div>
                :
-                <Grid.Column>
+                <div className="sub">
                <Link to="/login">Login</Link>
-                </Grid.Column>
+                </div>
               }
-               </Grid.Row>
-             </Grid>
+              </div>
           </nav>
-    
       )
   }
 }

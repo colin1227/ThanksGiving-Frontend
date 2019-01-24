@@ -94,9 +94,7 @@ export default class Container extends Component {
     render(){
         return(
             <div className='bg'>
-                {/* {this.state.super ? <p>super</p> : <p>not super</p>}
-                {this.state.userId}
-                {this.state.lastPage} */}
+                
             <Header logged={this.state.logged} lastPage={this.state.lastPage} super={this.state.super} logOut={this.logOut} userId={this.state.userId} name={this.state.name}/>
           <Switch>
                 <Route exact path="/"

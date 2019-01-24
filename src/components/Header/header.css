@@ -1,18 +1,48 @@
-.bg-nav{
-    background-image: url("https://66.media.tumblr.com/def5422eb3161606240c97da4cb5339c/tumblr_nvb7v7U9Hh1uadak5o1_500.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.sub:hover {
+  background-color: rgb(207, 204, 6);
+
 }
 
-#theLogo {
-  position: relative;
- 
-  display: flex;
-  justify-content:flex-end;
+.sub {
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  background-color: rgb(255, 115, 0);
+  margin: 0px;
 }
+
+.over {
+  background-color: #f18100;
+  width: 100%;
+  margin: 0px;
+  height: 100%;
+}
+
+h2 {
+  margin: 0px;
+  background-color: #2b0f0f;
+  color: #f18100;
+  float: left;
+}
+ 
+img {
+  float: right;
+  bottom: 4x;
+}
+
+ #theLogo {
+   display: inline-block;
+   background-color: #2b0f0f;
+   width: 100%;
+   margin: 0px;
+   height: 100%;
+ }
+
+
+
 .App-logo {
   animation: App-logo-spin infinite 10s linear;
-  height: 5vmin;
+  height: 7vmin;
   
 }
 
