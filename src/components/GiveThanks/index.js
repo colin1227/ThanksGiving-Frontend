@@ -84,7 +84,7 @@ export default class GiveThanks extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="backG">
                 <h1>Give thanks </h1>
                 <Form onSubmit={this.handleThankfulness}>
                     <Input type="text" className="left title" name="title" onChange={this.handleSubmit} value={this.state.title} placeholder="title"/><br/>

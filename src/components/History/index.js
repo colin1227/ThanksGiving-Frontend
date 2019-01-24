@@ -9,7 +9,7 @@ export default class History extends Component {
     }
       render(){
         return(
-            <div className="ayo">
+            <div className="backG">
                 <h1>History Page</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis eligendi error ad? Quod fugit eius temporibus totam deserunt minima aliquid cupiditate id sunt neque! Rerum atque modi facere magnam sint?</p>
             </div>

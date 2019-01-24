@@ -93,7 +93,7 @@ export default class Container extends Component {
     }
     render(){
         return(
-            <div className='bg'>
+            <div className='backG'>
                 
             <Header logged={this.state.logged} lastPage={this.state.lastPage} super={this.state.super} logOut={this.logOut} userId={this.state.userId} name={this.state.name}/>
           <Switch>

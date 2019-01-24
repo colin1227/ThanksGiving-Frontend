@@ -143,7 +143,7 @@ export default class Food extends Component {
             )
         })
         return(
-            <div>
+            <div className="backG">
                 <h1>CRUD foods here</h1>
                 {editOrDelete}
                 {this.state.edit ? 
