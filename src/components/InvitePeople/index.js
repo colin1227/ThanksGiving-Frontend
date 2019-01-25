@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Header, Grid, Segment, Icon } from 'semantic-ui-react';
+import { Form, Input, Grid } from 'semantic-ui-react';
 import "./invitePeople.css";
 export default class InvitePeople extends Component {
     constructor(){

@@ -4,7 +4,8 @@ import Bulletin from "./Thanks";
 import Table from "./Table";
 import People from "./People";
 import History from "./History";
-import Login from './Login';
+import Login from "./Login";
+import Register from "./Register"
 import GiveThanks from "./GiveThanks";
 import InvitePeople from "./InvitePeople";
 import Header from "./Header";
@@ -12,7 +13,7 @@ import SuperReg from "./superReg";
 import AdminFood from "./food";
 import User from "./userPage";
 import Person from "./personPage";
-import './container.css'
+import "./container.css"
 
 export default class Container extends Component {
     constructor(){
@@ -33,7 +34,7 @@ export default class Container extends Component {
     logOut = async() => {
         try { 
             await this.setState({
-                userId: '',
+                userId: "",
                 logged: false,
                 super: false
             })
@@ -93,7 +94,7 @@ export default class Container extends Component {
     }
     render(){
         return(
-            <div className='backG'>
+            <div className="backG">
                 
             <Header logged={this.state.logged} lastPage={this.state.lastPage} super={this.state.super} logOut={this.logOut} userId={this.state.userId} name={this.state.name}/>
           <Switch>
@@ -101,74 +102,77 @@ export default class Container extends Component {
                     render={(routeProps) => {
                         return (
                             <History {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
-                        )
-                    }} /> 
+                        )}}/> 
                 <Route exact path="/thanks"
                     render={(routeProps) => {
                         return (
                             <Bulletin {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
-                        )
-                    }} /> 
+                        )}}/> 
                 <Route exact path="/givethanks"
                     render={(routeProps) => {
                         return (
                             <GiveThanks {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
-                        )
-                    }} />
+                        )}}/>
 
                 <Route exact path="/table"
                     render={(routeProps) => {
                         return (
                             <Table {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
-                        )
-                    }} />
+                        )}}/>
 
                 <Route exact path="/adminfood"
                     render={(routeProps) => {
                         return (
                             <AdminFood {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} super={this.state.super} logged={this.state.logged} lastPage={this.state.lastPage} />
-                        )
-                    }} />
+                        )}}/>
 
                 <Route exact path="/people"
                     render={(routeProps) => {
                         return (
                             <People {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} specId={this.specId}/>
-                        )
-                    }} />    
+                        )}}/>   
+
                 <Route exact path="/invite"
                     render={(routeProps) => {
                         return (
                             <InvitePeople {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
-                        )
-                    }} /> 
+                        )}}/> 
 
-                    <Route exact path={`/${this.state.userId}`}
-                        render={(routeProps) => {
-                            return (
-                                <User {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} specificId={this.state.specificId}/>
-                            )
-                        }} /> 
-                    <Route exact path={`/user/${this.state.specificId}`}
-                        render={(routeProps) => {
-                            return (
-                                <User {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} specificId={this.state.specificId}/>
-                            )
-                        }} /> 
+                <Route exact path={`/${this.state.userId}`}
+                    render={(routeProps) => {
+                        return (
+                            <User {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} specificId={this.state.specificId}/>
+                        )}}/> 
 
-                    <Route exact path={`/people/${this.state.specificId}`}
-                        render={(routeProps) => {
-                            return (
-                                <Person {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} specificId={this.state.specificId}/>
-                            )
-                        }} />
+                <Route exact path={`/user/${this.state.specificId}`}
+                    render={(routeProps) => {
+                        return (
+                            <User {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} specificId={this.state.specificId}/>
+                        )}}/> 
 
-                <Route exact path="/login" render={(routeProps)=>(
-                        <Login {...routeProps} {...this.props} newUserId={this.newUserId} lastPage={this.state.lastPage}/>
-                )} />
-                <Route exact path="/adminregister" render={(routeProps)=>(
-                        <SuperReg {...routeProps} {...this.props} newUserId={this.newUserId} lastPage={this.state.lastPage}/>
-                )} />
+                <Route exact path={`/people/${this.state.specificId}`}
+                    render={(routeProps) => {
+                        return (
+                            <Person {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} specificId={this.state.specificId}/>
+                        )}}/>
+
+                <Route exact path="/login" 
+                    render={(routeProps)=>{
+                        return (
+                            <Login {...routeProps} {...this.props} newUserId={this.newUserId} lastPage={this.state.lastPage}/>
+                        )}}/>
+
+                <Route exact path="/register" 
+                    render={(routeProps)=>{
+                        return (
+                            <Register {...routeProps} {...this.props} newUserId={this.newUserId} lastPage={this.state.lastPage}/>
+                        )}}/>
+
+                <Route exact path="/adminregister" 
+                    render={(routeProps)=>{
+                        return (
+                            <SuperReg {...routeProps} {...this.props} newUserId={this.newUserId} lastPage={this.state.lastPage}/>
+                        )}}/>
               
           </Switch>
             </div>

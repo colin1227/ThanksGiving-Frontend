@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, Header, Grid, Segment, Icon } from 'semantic-ui-react';
+import { Form, Input } from 'semantic-ui-react';
 import "./give.css"
 export default class GiveThanks extends Component {
     constructor(){

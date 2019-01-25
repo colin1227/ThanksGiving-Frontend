@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Button, Form, Input, Header, Grid, Segment, Icon } from 'semantic-ui-react';
+import { Button, Form, Input} from 'semantic-ui-react';
 
 export default class Food extends Component {
     constructor(){
