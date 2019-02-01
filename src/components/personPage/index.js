@@ -5,7 +5,8 @@ export default class person extends Component {
         super()
         this.state = {
             name:"",
-            foodBrought: []
+            foodBrought: [],
+            parents: []
         }
     }
     fetchPerson = async() =>{

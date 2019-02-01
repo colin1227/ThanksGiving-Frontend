@@ -37,12 +37,13 @@ class Login extends Component {
             const parsedUser = await LoginJson.json();
             if(parsedUser.logged === true){
                 if(parsedUser.super === true){
-                  await this.props.newUserId(parsedUser.userId, parsedUser.username, true)
+
+                  await this.props.newUserId(parsedUser.userId, parsedUser.firstName, true)
                   console.log(parsedUser.username, "logged in 1")
                   this.props.history.push(this.props.lastPage); 
                 }
                 else{
-                await this.props.newUserId(parsedUser.userId, parsedUser.username, false)
+                await this.props.newUserId(parsedUser.userId, parsedUser.firstName, false)
                 console.log(parsedUser.username, "logged in 2")
                 this.props.history.push(this.props.lastPage); 
                 }     

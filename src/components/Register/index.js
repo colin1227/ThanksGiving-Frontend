@@ -82,13 +82,13 @@ class Register extends Component {
     grabFood = async() =>{
         try{
             const response = await fetch("http://localhost:8000/table");
-          const dinner = await response.json();
-          console.log(dinner)
-          return dinner.data;
+            const dinner = await response.json();
+            console.log(dinner)
+            return dinner.data;
         }
         catch(err){
-          this.setState({
-              error: err
+            this.setState({
+                error: err
           })
         }
     }
@@ -120,18 +120,16 @@ class Register extends Component {
                     spouseFirst: this.state.spouseFirst,
                     spouseLast: this.state.spouseLast,
 
-                    kids:this.state.kids,
+                    kids: this.state.kids,
                     secureKey: ""
                 }),
                 credentials: 'same-origin',
                 headers: {'Content-Type': 'application/json'}
                 })
-                console.log('a 31')
             const parsedUser = await registerJson.json()
             console.log(parsedUser, "register parsed user")
             if (parsedUser.logged === true) {
-                await this.props.newUserId(parsedUser.userId, parsedUser.username, true)
-                  console.log('42')
+                await this.props.newUserId(parsedUser.userId, parsedUser.user.firstNameame, true)
                   this.props.history.push(this.props.lastPage)
                 }
             else{
@@ -176,7 +174,6 @@ class Register extends Component {
                 })
                 
             });
-            console.log(this.state.allFood)
         }).catch((err)=>{
             console.log(err)
             this.setState({

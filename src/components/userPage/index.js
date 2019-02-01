@@ -6,7 +6,10 @@ export default class User extends Component {
         this.state = {
             name: "",
             likedFood: [],
-            thanks: []
+            foodBrought: [],
+            thanks: [],
+            kids: [],
+
 
         }
     }
@@ -16,7 +19,7 @@ export default class User extends Component {
             const request = await fetch("https://nameless-headland-14799.herokuapp.com/auth/",{
                 method:"POST",
                 body: JSON.stringify({
-                    userId: this.props.specificId  || this.props.userId
+                    userId: this.props.userId
                 }),
                 headers: {"Content-Type": "application/json"}
             });
