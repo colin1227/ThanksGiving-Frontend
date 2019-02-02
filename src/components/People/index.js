@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import { Link } from 'react-router-dom';
-
+//"https://nameless-headland-14799.herokuapp.com/people"
 export default class People extends Component {
     constructor(){
         super()
@@ -13,7 +13,7 @@ export default class People extends Component {
    
     gatherEveryone = async() =>{
         try{
-            const pepsJson = await fetch("https://nameless-headland-14799.herokuapp.com/people");
+            const pepsJson = await fetch("http://localhost:8000/people");
           const parsedPeps = pepsJson.json();
           console.log(parsedPeps)
           return parsedPeps;

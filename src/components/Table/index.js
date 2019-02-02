@@ -28,7 +28,8 @@ export default class Table extends Component {
 
     likeFood = async(obj) =>{
         try{
-            const request = await fetch('https://nameless-headland-14799.herokuapp.com/auth/liked',{
+            //https://nameless-headland-14799.herokuapp.com/auth/liked
+            const request = await fetch('http://localhost:8000/auth/liked',{
                 method:"PUT",
                 body: JSON.stringify({
                     food: obj,
@@ -48,7 +49,8 @@ export default class Table extends Component {
     
     grabFood = async() =>{
       try{
-          const response = await fetch("https://nameless-headland-14799.herokuapp.com/table/");
+          //https://nameless-headland-14799.herokuapp.com/table/
+          const response = await fetch("http://localhost:8000/table/");
         const dinner = await response.json();
         console.log(dinner)
         return dinner.data;

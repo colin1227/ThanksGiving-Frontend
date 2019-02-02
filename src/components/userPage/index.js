@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+//https://nameless-headland-14799.herokuapp.com/auth/
 export default class User extends Component {
     constructor(){
         super()
@@ -9,21 +9,25 @@ export default class User extends Component {
             foodBrought: [],
             thanks: [],
             kids: [],
+            parents: [],
+            siblings: [],
+            hasSpouse: false,
+            spouse: {}
 
 
         }
     }
     findUser = async() => {
         try{
-            console.log("adfa")
-            const request = await fetch("https://nameless-headland-14799.herokuapp.com/auth/",{
+            const request = await fetch("http://localhost:8000/auth/",{
                 method:"POST",
                 body: JSON.stringify({
-                    userId: this.props.userId
+                    userId: this.props.specificId
                 }),
                 headers: {"Content-Type": "application/json"}
             });
             const response = await request.json();
+            console.log(response)
             return response;
         }
         catch(err){

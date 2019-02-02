@@ -16,7 +16,8 @@ export default class GiveThanks extends Component {
     }
     getUser = async () => {
         try {
-            const response = await fetch("https://nameless-headland-14799.herokuapp.com/auth/", {
+            //https://nameless-headland-14799.herokuapp.com/auth/
+            const response = await fetch("http://localhost:8000/auth/", {
                 method: "POST",
                 body: JSON.stringify({ userId: this.props.userId }),
                 credentials: "include",
@@ -57,8 +58,8 @@ export default class GiveThanks extends Component {
         e.preventDefault()
         console.log("is this happening")
         try{
-        
-            const sendIt = await fetch("https://nameless-headland-14799.herokuapp.com/thanks/thankful/",{
+            //https://nameless-headland-14799.herokuapp.com/thanks/thankful/
+            const sendIt = await fetch("http://localhost:8000/thanks/thankful/",{
             method:"POST",
             body: JSON.stringify({thanks:{
                 title: this.state.title,

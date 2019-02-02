@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+//https://nameless-headland-14799.herokuapp.com/people/person
 export default class person extends Component {
     constructor(){
         super()
@@ -9,9 +9,9 @@ export default class person extends Component {
             parents: []
         }
     }
-    fetchPerson = async() =>{
+    fetchKid = async() =>{
         try{
-            const request = await fetch("https://nameless-headland-14799.herokuapp.com/people/person")
+            const request = await fetch("http://localhost:8000/people/person")
             const response = await request.json();
             return response;
         }
@@ -20,7 +20,7 @@ export default class person extends Component {
         }
     }
     componentDidMount(){
-        this.fetchPerson().then((data)=>{
+        this.fetchKid().then((data)=>{
             this.setState({
                 name: data.name
             })

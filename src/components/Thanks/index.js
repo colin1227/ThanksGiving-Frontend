@@ -20,7 +20,8 @@ export default class Bulletin extends Component {
     }
     getThanks = async() => {
         try {
-            const allThanks = await fetch("https://nameless-headland-14799.herokuapp.com/thanks/");
+            //https://nameless-headland-14799.herokuapp.com/thanks/
+            const allThanks = await fetch("http://localhost:8000/thanks/");
           const parsed = await allThanks.json();
           console.log(parsed)
           return parsed;
@@ -67,16 +68,15 @@ export default class Bulletin extends Component {
             console.log("err")
             console.log(err)
         });
-        console.log("line 60")
         this.countCurrentThanksIndex();
-        console.log("line 62")
+    
         
     }
     
     render(){
         const displayedThanks = this.state.allThanks.map((element, i)=>{
           return(
-            <List unordered key={i}>
+            <List unordered='true' key={i}>
               <List.Item><b>{element.title}</b></List.Item>
               <List.Item> {element.body}</List.Item>
             </List>

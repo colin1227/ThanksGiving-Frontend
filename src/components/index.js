@@ -71,7 +71,8 @@ export default class Container extends Component {
         }
     specId = async(id) => {
         try{   
-            await this.setState({
+                console.log(id)
+                this.setState({
                 specificId: id
             })
         }
