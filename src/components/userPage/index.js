@@ -4,15 +4,25 @@ export default class User extends Component {
     constructor(){
         super()
         this.state = {
+
             name: "",
+            me: false,
+
             likedFood: [],
             foodBrought: [],
             thanks: [],
+
+            canDrink: false,
+
             kids: [],
             parents: [],
             siblings: [],
+
             hasSpouse: false,
-            spouse: {}
+            spouseFirst:"",
+            spouseLast: "",
+
+
 
 
         }
@@ -37,18 +47,18 @@ export default class User extends Component {
     componentDidMount(){
         this.findUser().then((data)=>{
             this.setState({
-                name: data.username,
-            })
-            data.likedFood.forEach(element => {
-                this.setState({
-                    likedFood: [...this.state.likedFood, element]
-                })
+                name: data.firstName,
+
+                canDrink: data.canDrink,
+                foodBrought: data.foodBrought,
+                hasSpouse: data.hasSpouse,
+                spouseFirst: data.spouse.spouseFirst,
+                spouseLast: data.spouse.spouseLast,
+                likedFood: data.likedFood,
+                thanks: data.thanks
+
             });
-            data.thanks.forEach(element => {
-                this.setState({
-                    thanks: [...this.state.thanks, element]
-                })
-            })
+
         }).catch((err) =>{
             console.log(err)
         })

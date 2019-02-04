@@ -7,24 +7,23 @@ class Register extends Component {
             usernameReg: "",
             passwordReg: "",
 
+            secureKey: "",
+
+            userId: '',
+            logged: false,
+            familyCode: "",
+
             firstName: "",
             lastName: "",
 
             canDrink: false,
-
+            allFood: [],
             foodBrought: [],
-            familyCode: "",
 
             spouse: false,
             spouseFirst: "",
             spouseLast: "",
             kids: [],
-
-            userId: "",
-            logged: false,
-
-
-            allFood: [],
 
             addingKid: false,
             kidFirst:"",
@@ -93,12 +92,6 @@ class Register extends Component {
         }
     }
 
-    newKidForm = () =>{
-        this.setState({
-            addingKid: true
-        })
-    }
-
     handleRegister = async(e) => {
         e.preventDefault()
         try{
@@ -143,6 +136,13 @@ class Register extends Component {
 
         }
     }
+
+    newKidForm = () =>{
+        this.setState({
+            addingKid: true
+        })
+    }
+
     cancel = () =>{
         this.setState({
             addingKid: false,
@@ -166,6 +166,7 @@ class Register extends Component {
                 canKidDrink: false
             })
     }
+    
     componentWillMount(){
         this.grabFood().then((data)=>{
             data.forEach(element => {
