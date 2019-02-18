@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import "./history.css"
 export default class History extends Component {
+    // constructor(props){
+    //     super(props)
+    //     this.props.newURL = this.props.newURL("/").bind(this)
+    // }
     giveItaSec = () =>{
-        this.props.newURL("/")
+        return this.props.newURL("/")
     }
     componentDidMount(){
         this.giveItaSec()
+    }
+    four = (anHour) => {
+        return anHour * 40 * 4 * 12
     }
       render(){
         return(
@@ -16,5 +23,6 @@ export default class History extends Component {
         )
       }
 }
+
 
  

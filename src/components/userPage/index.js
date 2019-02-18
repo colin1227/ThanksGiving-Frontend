@@ -44,20 +44,22 @@ export default class User extends Component {
             console.log(err)
         }
     }
-    componentDidMount(){
+    componentWillMount(){
         this.findUser().then((data)=>{
             this.setState({
                 name: data.firstName,
-
+                me: data.me,
                 canDrink: data.canDrink,
                 foodBrought: data.foodBrought,
                 hasSpouse: data.hasSpouse,
                 spouseFirst: data.spouse.spouseFirst,
                 spouseLast: data.spouse.spouseLast,
                 likedFood: data.likedFood,
-                thanks: data.thanks
-
+                thanks: data.thanks,
+                kids: [data.kids.noAcc, data.kids.kidWAcc],
+                siblings: data.siblings
             });
+
 
         }).catch((err) =>{
             console.log(err)
@@ -70,7 +72,26 @@ export default class User extends Component {
                 <li key={i}>{element.name}</li>    
             )
         })
-
+        const parents = this.state.parents.map((element, i)=>{
+            return(
+                <li key={i}>{element.name}</li>    
+            )
+        })
+        const siblings = this.state.siblings.map((element, i)=>{
+            return(
+                <li key={i}>{element.name}</li>    
+            )
+        })
+        const kids = this.state.kids.map((element, i)=>{
+            return(
+                <li key={i}>{element.name}</li>    
+            )
+        })
+        const foodBrought = this.state.foodBrought.map((element, i)=>{
+            return(
+                <li key={i}>{element.name}</li>    
+            )
+        })
         const thanks = this.state.thanks.map((element, i) => {
             return (
                 <div key={i}>
@@ -83,16 +104,35 @@ export default class User extends Component {
             return(
              <div>
                 <h1>{this.state.name}</h1> 
-                  <br/>
+                    <br/>
+                    <p>can {this.state.name} drink? {this.state.canDrink ? <p>yes</p> : <p>no</p> }</p>
+                <h2>Family</h2>
+                    <h4>parents:</h4>
+                        <ul>
+                            {parents}
+                        </ul>
+                    <h4>siblings:</h4>
+                        <ul>
+                            {siblings}
+                        </ul>
+                    <h4>kids:</h4>
+                        <ul>
+                            {kids}
+                        </ul>
+                <h3>Food Brought:</h3>
+                    <ol>
+                        {foodBrought}
+                    </ol>
+                    <br/>
                 <h3>Liked Food:</h3>
-                  <ol>
-                    {likedFood}
-                  </ol>
-                  <br/>
+                    <ol>
+                        {likedFood}
+                    </ol>
+                    <br/>
                 <h3>Thanks given:</h3>
-                  <ul>
-                    {thanks}
-                  </ul>
+                    <ul>
+                        {thanks}
+                     </ul>
              </div>
         )
     }
