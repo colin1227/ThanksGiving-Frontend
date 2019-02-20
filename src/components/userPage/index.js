@@ -46,8 +46,9 @@ export default class User extends Component {
     }
     componentWillMount(){
         this.findUser().then((data)=>{
+            console.log(data, "data")
             this.setState({
-                name: data.firstName,
+                name: `${data.firstName} ${data.lastName}`,
                 me: data.me,
                 canDrink: data.canDrink,
                 foodBrought: data.foodBrought,
@@ -59,6 +60,8 @@ export default class User extends Component {
                 kids: [data.kids.noAcc, data.kids.kidWAcc],
                 siblings: data.siblings
             });
+
+            console.log(this.state, "state")
 
 
         }).catch((err) =>{
@@ -74,7 +77,7 @@ export default class User extends Component {
         })
         const parents = this.state.parents.map((element, i)=>{
             return(
-                <li key={i}>{element.name}</li>    
+                <li key={i}>{`${element.firstName} ${element.lastName}`}</li>    
             )
         })
         const siblings = this.state.siblings.map((element, i)=>{
@@ -105,7 +108,7 @@ export default class User extends Component {
              <div>
                 <h1>{this.state.name}</h1> 
                     <br/>
-                    <p>can {this.state.name} drink? {this.state.canDrink ? <p>yes</p> : <p>no</p> }</p>
+                    <p>can {this.state.name} drink? {this.state.canDrink ? `yes` : `no` }</p>
                 <h2>Family</h2>
                     <h4>parents:</h4>
                         <ul>

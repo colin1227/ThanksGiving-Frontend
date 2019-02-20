@@ -19,7 +19,7 @@ export default class GiveThanks extends Component {
             //https://nameless-headland-14799.herokuapp.com/auth/
             const response = await fetch("http://localhost:8000/auth/", {
                 method: "POST",
-                body: JSON.stringify({ userId: this.props.userId }),
+                body: JSON.stringify({ userId: this.props.specificId }),
                 credentials: "include",
                 headers: {
                     'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ export default class GiveThanks extends Component {
             console.log("no good!!")
         }
     }
-    componentDidMount() {
+    componentWillMount() {
         this.giveItaSec()
         this.getUser().then((data) => {
             if (data.logged === undefined) {
@@ -65,7 +65,7 @@ export default class GiveThanks extends Component {
                 title: this.state.title,
                 body: this.state.body},
                 author: this.props.name,
-                userId: this.props.userId
+                userId: this.props.specificId
             }),
             headers: { 'Content-Type': 'application/json' }
         })

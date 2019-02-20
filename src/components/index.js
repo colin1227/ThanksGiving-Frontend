@@ -57,7 +57,7 @@ export default class Container extends Component {
     newUserId = async(id, username,superr) =>{
         try{
           await this.setState({
-            userId: id,
+            specificId: id,
             logged: true,
             name: username,
             super: superr
@@ -97,7 +97,7 @@ export default class Container extends Component {
         return(
             <div className="backG">
                 
-            <Header logged={this.state.logged} lastPage={this.state.lastPage} super={this.state.super} logOut={this.logOut} userId={this.state.userId} name={this.state.name}/>
+            <Header logged={this.state.logged} lastPage={this.state.lastPage} super={this.state.super} logOut={this.logOut} userId={this.state.userId} specificId={this.state.specificId}name={this.state.name}/>
           <Switch>
                 <Route exact path="/"
                     render={(routeProps) => {
@@ -112,7 +112,7 @@ export default class Container extends Component {
                 <Route exact path="/givethanks"
                     render={(routeProps) => {
                         return (
-                            <GiveThanks {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
+                            <GiveThanks {...routeProps} {...this.props} newURL={this.newURL} specificId={this.state.specificId} logged={this.state.logged} lastPage={this.state.lastPage} />
                         )}}/>
 
                 <Route exact path="/table"
@@ -130,7 +130,7 @@ export default class Container extends Component {
                 <Route exact path="/people"
                     render={(routeProps) => {
                         return (
-                            <People {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} specId={this.specId}/>
+                            <People {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.specificId} logged={this.state.logged} lastPage={this.state.lastPage} specId={this.specId}/>
                         )}}/>   
 
                 <Route exact path="/invite"
@@ -139,10 +139,10 @@ export default class Container extends Component {
                             <InvitePeople {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} />
                         )}}/> 
 
-                <Route exact path={`/${this.state.userId}`}
+                <Route exact path={`/${this.state.specificId}`}
                     render={(routeProps) => {
                         return (
-                            <User {...routeProps} {...this.props} newURL={this.newURL} userId={this.state.userId} logged={this.state.logged} lastPage={this.state.lastPage} specificId={this.state.specificId}/>
+                            <User {...routeProps} {...this.props} newURL={this.newURL} specificId={this.state.specificId} logged={this.state.logged} lastPage={this.state.lastPage} specificId={this.state.specificId}/>
                         )}}/> 
 
                 <Route exact path={`/user/${this.state.specificId}`}

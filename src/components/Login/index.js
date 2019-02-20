@@ -35,6 +35,7 @@ class Login extends Component {
                 }
             })
             const parsedUser = await LoginJson.json();
+            console.log(parsedUser)
             if(parsedUser.logged === true){
                 if(parsedUser.super === true){
 

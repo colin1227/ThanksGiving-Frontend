@@ -19,7 +19,7 @@ export default class Head extends Component {
                 
                  {this.props.logged ?
                 <div className="sub">
-                  <Link to={`/${this.props.userId}`}>{this.props.name}</Link> 
+                  <Link to={`/${this.props.specificId}`}>{this.props.name}</Link> 
                 </div>
                 :
                 <Link to="/nowhere"></Link>
